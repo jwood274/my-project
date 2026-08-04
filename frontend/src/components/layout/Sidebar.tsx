@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { LayoutDashboard, User, Settings } from 'lucide-react'
+import { ThemeToggle } from '@/components/shared/ThemeToggle'
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -10,10 +11,11 @@ const navItems = [
 export function Sidebar() {
   return (
     <aside className="hidden lg:flex w-60 flex-col border-r border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-      <div className="flex h-14 items-center px-4 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex h-14 items-center justify-between px-4 border-b border-zinc-200 dark:border-zinc-800">
         <span className="font-semibold text-sm">
           {process.env.NEXT_PUBLIC_APP_NAME ?? 'App'}
         </span>
+        <ThemeToggle />
       </div>
       <nav className="flex-1 p-3 space-y-1">
         {navItems.map(({ href, label, icon: Icon }) => (
